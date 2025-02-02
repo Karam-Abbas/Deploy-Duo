@@ -3,92 +3,110 @@ import Image from "next/image"
 
 const team = [
   {
-    name: "John Doe",
+    name: "Karam Abbas",
     role: "CEO & Co-founder",
     image: "/placeholder.svg?height=400&width=400",
   },
   {
-    name: "Jane Smith",
+    name: "Abdul Hannan",
     role: "CTO & Co-founder",
     image: "/placeholder.svg?height=400&width=400",
   },
-  // Add more team members as needed
+]
+
+const values = [
+  {
+    title: "Innovation",
+    description: "Pushing boundaries and embracing new technologies",
+  },
+  {
+    title: "Quality",
+    description: "Delivering excellence in every project",
+  },
+  {
+    title: "Collaboration",
+    description: "Working together to achieve great results",
+  },
 ]
 
 export default function AboutPage() {
   return (
-    <div className="container py-8 md:py-12 lg:py-24">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">About Deploy Duo</h1>
-        <p className="max-w-[700px] text-muted-foreground">
-          We are a passionate team of developers and designers creating exceptional digital experiences
-        </p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 py-8 mx-auto space-y-16 md:py-12 lg:py-24">
+        {/* Hero Section */}
+        <header className="max-w-3xl mx-auto text-center space-y-4">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+            About Deploy Duo
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            We are a passionate team of developers and designers creating exceptional digital experiences
+          </p>
+        </header>
 
-      <div className="grid gap-12 pt-12">
-        <section className="grid gap-6 md:grid-cols-2 md:gap-12">
-          <div className="flex flex-col justify-center space-y-4">
+        {/* Our Story Section */}
+        <section className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+          <div className="flex flex-col space-y-4 order-2 md:order-1">
             <h2 className="text-2xl font-bold">Our Story</h2>
             <p className="text-muted-foreground">
               Founded in 2023, Deploy Duo emerged from a shared vision to create impactful digital solutions. We combine
               technical expertise with creative innovation to deliver exceptional results for our clients.
             </p>
           </div>
-          <Image
-            src="/placeholder.svg?height=300&width=400"
-            alt="About Deploy Duo"
-            width={400}
-            height={300}
-            className="rounded-lg object-cover"
-          />
+          <div className="order-1 md:order-2">
+            <Image
+              src="/placeholder.svg?height=300&width=400"
+              alt="About Deploy Duo"
+              width={400}
+              height={300}
+              className="rounded-lg object-cover w-full h-auto shadow-lg"
+            />
+          </div>
         </section>
 
-        <section className="space-y-6">
+        {/* Team Section */}
+        <section className="space-y-8">
           <h2 className="text-2xl font-bold text-center">Our Team</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {team.map((member, index) => (
-              <Card key={index}>
-                <CardContent className="flex flex-col items-center p-6">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    width={200}
-                    height={200}
-                    className="rounded-full"
-                  />
-                  <h3 className="mt-4 text-xl font-bold">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+              <Card key={index} className="transition-transform hover:scale-105">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center space-y-4">
+                    <div className="relative w-40 h-40">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="rounded-full object-cover"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-xl font-bold">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
 
-        <section className="space-y-6">
+        {/* Values Section */}
+        <section className="space-y-8">
           <h2 className="text-2xl font-bold text-center">Our Values</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <h3 className="text-xl font-bold">Innovation</h3>
-                <p className="text-center text-muted-foreground">Pushing boundaries and embracing new technologies</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <h3 className="text-xl font-bold">Quality</h3>
-                <p className="text-center text-muted-foreground">Delivering excellence in every project</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <h3 className="text-xl font-bold">Collaboration</h3>
-                <p className="text-center text-muted-foreground">Working together to achieve great results</p>
-              </CardContent>
-            </Card>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((value, index) => (
+              <Card key={index} className="transition-transform hover:scale-105">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center space-y-2 text-center">
+                    <h3 className="text-xl font-bold">{value.title}</h3>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       </div>
     </div>
   )
 }
-

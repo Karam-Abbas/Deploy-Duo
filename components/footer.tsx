@@ -4,20 +4,11 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 export function Footer() {
   return (
     <footer className="w-full border-t bg-background">
-      <div className="container mx-auto py-2 md:py-0">
+      <div className=" px-4 md:py-0">
         <div className="flex flex-col items-center justify-between space-y-6 md:h-24 md:flex-row md:space-y-0">
           <div className="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0">
             <p className="text-center text-sm text-muted-foreground md:text-left">
-              Built with ❤️ by Deploy Duo. The source code is available on{" "}
-              <Link 
-                href="#" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="font-medium text-primary underline underline-offset-4 hover:text-primary/80"
-              >
-                GitHub
-              </Link>
-              .
+              Built with 🤍 by Deploy Duo.
             </p>
           </div>
 
@@ -32,7 +23,7 @@ export function Footer() {
               <span className="sr-only">Twitter</span>
             </Link>
             <Link 
-              href="#" 
+              href="https://github.com/Karam-Abbas" 
               target="_blank" 
               rel="noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"
@@ -41,7 +32,7 @@ export function Footer() {
               <span className="sr-only">GitHub</span>
             </Link>
             <Link 
-              href="#" 
+              href="www.linkedin.com/in/karamabbas" 
               target="_blank" 
               rel="noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"

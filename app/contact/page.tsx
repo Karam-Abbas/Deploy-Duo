@@ -133,9 +133,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">Address</h3>
                     <p className="text-muted-foreground">
-                      123 Tech Street
+                      Lahore
                       <br />
-                      Digital City, 12345
+                      Punjab, Pakistan
                     </p>
                   </div>
                 </div>
@@ -143,14 +143,14 @@ export default function ContactPage() {
                   <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">+92 (326) 140-5470</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">contact@deployduo.com</p>
+                    <p className="text-muted-foreground">karamworkmail07@gmail.com</p>
                   </div>
                 </div>
               </CardContent>

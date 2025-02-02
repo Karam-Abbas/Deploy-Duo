@@ -39,7 +39,6 @@ export function Navigation() {
               {route.label}
             </Link>
           ))}
-          <Button>Get Started</Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -64,7 +63,6 @@ export function Navigation() {
                   {route.label}
                 </Link>
               ))}
-              <Button className="w-full">Get Started</Button>
             </nav>
           </div>
         )}
