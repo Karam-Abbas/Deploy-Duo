@@ -9,32 +9,51 @@ import { motion } from "framer-motion"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online shopping platform with real-time inventory management. Built with modern technologies to ensure scalability and performance.",
-    image: "/placeholder.svg",
-    tech: ["Next.js", "Node.js", "PostgreSQL"],
-    link: "#",
+    title: "Beemo Shop",
+    description: "Fully Featured E-Commerce Jewellery Store",
+    image: "/beemo.png",
+    tech: ["WordPress"],
+    link: "https://beemo.shop",
     github: "#",
-    category: "Web Application"
+    category: "E-Commerce Store"
   },
   {
-    title: "Healthcare Management System",
-    description: "Digital solution for managing patient records and appointments. Features include secure data handling and real-time updates.",
-    image: "/placeholder.svg",
-    tech: ["React", "Express", "MongoDB"],
-    link: "#",
+    title: "Mushtaq & Sons",
+    description: "A Tag & Label Company's Portfolio",
+    image: "/mushtaq.png",
+    tech: ["React","Javascript","HTML","CSS","Web3 Forms"],
+    link: "https://mushtaqsons.com.pk",
     github: "#",
-    category: "Enterprise Solution"
+    category: "Portfolio"
   },
   {
-    title: "Real Estate Portal",
-    description: "Property listing and management platform with virtual tours. Includes advanced search and filtering capabilities.",
-    image: "/placeholder.svg",
-    tech: ["Vue.js", "Django", "PostgreSQL"],
-    link: "#",
+    title: "Dubai Repair Service",
+    description: "Portfolio of a Repair Company ",
+    image: "/dubairepair.png",
+    tech: ["React", "Web3 Forms" ,"Javascript","HTML","CSS"],
+    link: "https://serviceapp1.vercel.app",
     github: "#",
-    category: "Web Application"
+    category: "Portfolio"
   },
+  {
+    title: "Nike App",
+    description: "Re-Imagined Nike Portfolio",
+    image: "/nikeapp.png",
+    tech: ["React","Javascript","HTML","CSS"],
+    link: "https://nike-ui-seven.vercel.app",
+    github: "#",
+    category: "Portfolio"
+  },
+  {
+    title: "Finance Tracker",
+    description: "A web app to handle your finances.",
+    image: "/Group 3.png",
+    tech: ["React","Express","Node","MongoDB"],
+    link: "https://nike-ui-7.vercel.app",  // to be changed later
+    github: "#",
+    category: "Finance"
+  },
+  
 ]
 
 const categories = ["All", ...new Set(projects.map(p => p.category))]
