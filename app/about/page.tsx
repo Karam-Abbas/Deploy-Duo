@@ -5,12 +5,12 @@ const team = [
   {
     name: "Karam Abbas",
     role: "CEO & Co-founder",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/karam.JPG?height=400&width=400",
   },
   {
     name: "Abdul Hannan",
     role: "CTO & Co-founder",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/hannan.PNG?height=400&width=400",
   },
 ]
 
@@ -48,13 +48,12 @@ export default function AboutPage() {
           <div className="flex flex-col space-y-4 order-2 md:order-1">
             <h2 className="text-2xl font-bold">Our Story</h2>
             <p className="text-muted-foreground">
-              Founded in 2023, Deploy Duo emerged from a shared vision to create impactful digital solutions. We combine
-              technical expertise with creative innovation to deliver exceptional results for our clients.
+            Founded in 2023, Deploy Duo is a team of skilled web developers specializing in the MERN Stack and Next.js. We build high-performance, scalable web applications, delivering modern, efficient, and future-proof solutions. Let’s turn ideas into reality! 🚀
             </p>
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="/placeholder.svg?height=300&width=400"
+              src="/AboutUs.jpg"
               alt="About Deploy Duo"
               width={400}
               height={300}
