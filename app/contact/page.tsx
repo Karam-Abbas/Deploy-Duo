@@ -1,12 +1,19 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone } from "lucide-react"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -21,36 +28,50 @@ export default function ContactPage() {
   })
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setFormStatus({ type: null, message: null })
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: null, message: null });
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Replace these with your actual EmailJS credentials
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "karamworkmail07@gmail.com", // Your email address
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+
       setFormStatus({
         type: "success",
-        message: "Message sent successfully! We'll get back to you soon."
-      })
-      setFormData({ name: "", email: "", message: "" })
+        message: "Message sent successfully! We'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setFormStatus({
         type: "error",
-        message: "Failed to send message. Please try again."
-      })
+        message: "Failed to send message. Please try again.",
+      });
+      console.error("Email error:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.id]: e.target.value
-    }))
-  }
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   return (
     <main className="min-h-screen w-full bg-background">
@@ -60,7 +81,8 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg text-muted-foreground">
-            Get in touch with us to discuss your project or any questions you may have
+            Get in touch with us to discuss your project or any questions you
+            may have
           </p>
         </div>
 
@@ -69,13 +91,18 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle>Send us a message</CardTitle>
               <CardDescription>
-                Fill out the form below and we'll get back to you as soon as possible
+                Fill out the form below and we'll get back to you as soon as
+                possible
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {formStatus.message && (
-                  <Alert variant={formStatus.type === "success" ? "default" : "destructive"}>
+                  <Alert
+                    variant={
+                      formStatus.type === "success" ? "default" : "destructive"
+                    }
+                  >
                     <AlertDescription>{formStatus.message}</AlertDescription>
                   </Alert>
                 )}
@@ -125,7 +152,9 @@ export default function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Find us using the information below</CardDescription>
+                <CardDescription>
+                  Find us using the information below
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -150,7 +179,9 @@ export default function ContactPage() {
                   <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">karamworkmail07@gmail.com</p>
+                    <p className="text-muted-foreground">
+                      karamworkmail07@gmail.com
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -164,11 +195,15 @@ export default function ContactPage() {
               <CardContent className="space-y-2">
                 <div className="flex justify-between">
                   <span className="font-medium">Monday - Friday</span>
-                  <span className="text-muted-foreground">9:00 AM - 6:00 PM</span>
+                  <span className="text-muted-foreground">
+                    9:00 AM - 6:00 PM
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Saturday</span>
-                  <span className="text-muted-foreground">10:00 AM - 4:00 PM</span>
+                  <span className="text-muted-foreground">
+                    10:00 AM - 4:00 PM
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Sunday</span>
@@ -180,5 +215,5 @@ export default function ContactPage() {
         </div>
       </div>
     </main>
-  )
+  );
 }

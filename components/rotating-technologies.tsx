@@ -5,25 +5,25 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   SiReact,
   SiNextdotjs,
-  SiTypescript,
+  SiJavascript,
   SiTailwindcss,
   SiPython,
   SiNodedotjs,
-  SiPostgresql,
   SiMongodb,
-  SiDocker,
+  SiExpress,
 } from "react-icons/si"
+import { DiMsqlServer } from "react-icons/di";
 
 const technologies = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "JavaScript", icon: SiJavascript, color: "#FFFF00" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" }
+  { name: "MS SQL", icon: DiMsqlServer, color: "#E1341E" },
+  { name: "Express", icon: SiExpress, color: "#ffffff" }
 ]
 
 export function RotatingTechnologies() {
@@ -32,7 +32,7 @@ export function RotatingTechnologies() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % technologies.length)
-    }, 3000)
+    }, 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -55,7 +55,7 @@ export function RotatingTechnologies() {
           </div>
           
           <div className=" relative mx-auto flex max-w-xl items-center justify-center">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="sync">
               {[-2, -1, 0, 1, 2].map((offset) => {
                 const index = (currentIndex + offset + technologies.length) % technologies.length
                 const tech = technologies[index]

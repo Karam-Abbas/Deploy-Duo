@@ -10,6 +10,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Deploy Duo - Software Development Company",
   description: "Professional software development services by Deploy Duo",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    }
 }
 
 export default function RootLayout({
