@@ -56,7 +56,7 @@ const projects = [
     description: "A web app to handle your finances.",
     image: "/Group 3.png",
     tech: ["React", "Express", "Node", "MongoDB"],
-    link: "https://finance-tracker-fvv2vshks-karam-abbas-projects.vercel.app/", // to be changed later
+    link: "https://financetrackerwebapp.vercel.app/", // to be changed later
     github: "https://github.com/Karam-Abbas/Finance-Tracker",
     category: "Finance",
   },
