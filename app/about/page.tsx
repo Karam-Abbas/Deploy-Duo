@@ -57,6 +57,7 @@ export default function AboutPage() {
               alt="About Deploy Duo"
               width={400}
               height={300}
+              loading="lazy"
               className="rounded-lg object-cover w-full h-auto shadow-lg"
             />
           </div>

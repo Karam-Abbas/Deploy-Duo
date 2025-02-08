@@ -125,6 +125,8 @@ export default function ProjectsPage() {
                     <Image
                       src={project.image}
                       alt={project.title}
+                      height={192}
+                      width={470}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
