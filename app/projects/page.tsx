@@ -121,13 +121,14 @@ export default function ProjectsPage() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
-                      height={192}
-                      width={470}
-                      fill
+                      layout="fill"
+                      objectFit="cover" // Important!
+                      width={470} // Placeholder, but important!
+                      height={192} // Placeholder, but important!
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/0" />
