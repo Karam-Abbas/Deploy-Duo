@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-switcher"
 
 const routes = [
   { href: "/", label: "Home" },
@@ -39,13 +40,17 @@ export function Navigation() {
               {route.label}
             </Link>
           ))}
+          <ThemeToggle /> {/* Add theme toggle for desktop */}
         </div>
 
         {/* Mobile Navigation */}
-        <Button variant="ghost" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          <span className="sr-only">Toggle Menu</span>
-        </Button>
+        <div className="flex items-center md:hidden">
+          <ThemeToggle /> {/* Add theme toggle for mobile */}
+          <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="sr-only">Toggle Menu</span>
+          </Button>
+        </div>
 
         {isOpen && (
           <div className="absolute left-0 top-16 z-50 w-full border-b bg-background p-4 md:hidden">
@@ -70,4 +75,3 @@ export function Navigation() {
     </header>
   )
 }
-

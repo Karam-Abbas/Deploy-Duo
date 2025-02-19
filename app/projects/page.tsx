@@ -125,11 +125,10 @@ export default function ProjectsPage() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout="fill"
-                      objectFit="cover" // Important!
-                      width={470} // Placeholder, but important!
-                      height={192} // Placeholder, but important!
+                      fill // Replace layout="fill" with fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Add sizes for optimization
+                      priority={index < 3} // Prioritize loading first 3 images
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/0" />
                   </div>

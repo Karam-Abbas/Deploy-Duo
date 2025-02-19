@@ -7,12 +7,12 @@ export function Footer() {
       <div className=" px-4 md:py-0">
         <div className="flex flex-col items-center justify-between space-y-6 md:h-24 md:flex-row md:space-y-0">
           <div className="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0">
-            <p className="text-center text-sm text-muted-foreground md:text-left">
+            <p className="text-center text-sm text-muted-foreground md:text-left pt-4 lg:pt-0">
               Built with 🤍 by Deploy Duo.
             </p>
           </div>
 
-          <div className="flex items-center justify-center space-x-6">
+          <div className="flex items-center justify-center space-x-6 pb-4 lg:pb-0">
             <Link 
               href="#" 
               target="_blank" 

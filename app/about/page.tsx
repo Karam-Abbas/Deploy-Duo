@@ -58,7 +58,6 @@ export default function AboutPage() {
               width={400}
               height={300}
               priority
-              loading="lazy"
               className="rounded-lg object-cover w-full h-auto shadow-lg"
             />
           </div>

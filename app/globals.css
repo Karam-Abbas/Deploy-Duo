@@ -4,66 +4,28 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Light theme */
+    --background: 0 0% 100%;           /* Pure white for clean look */
+    --foreground: 222 25% 12%;         /* Soft dark blue-grey for text */
+    --primary: 222 83% 55%;            /* Vibrant blue - welcoming yet professional */
+    --primary-foreground: 0 0% 100%;   /* White text on primary */
+    --muted: 220 14% 96%;              /* Subtle light blue-grey */
+    --muted-foreground: 222 25% 40%;   /* Readable muted text */
+    --border: 220 13% 91%;             /* Subtle borders */
+    --card: 0 0% 30%;                 /* White card background */
+}
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-  }
+.dark {
+    /* Dark theme - black based */
+    --background: 0 0% 7%;             /* Near-black for base */
+    --foreground: 0 0% 98%;            /* Slightly off-white for better contrast */
+    --primary: 222 83% 60%;            /* Bright blue that pops on dark */
+    --primary-foreground: 0 0% 100%;   /* Pure white for primary text */
+    --muted: 0 0% 15%;                 /* Dark grey for muted areas */
+    --muted-foreground: 0 0% 63%;      /* Visible but subdued text */
+    --border: 0 0% 20%;                /* Subtle dark borders */
+    --card: 0 0% 5%;                   /* Black card background */
+}
 }
 
 @layer base {

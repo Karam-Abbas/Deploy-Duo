@@ -75,7 +75,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen w-full bg-background">
-      <div className=" px-4 py-16 md:py-24 lg:py-32">
+      <div className=" px-4 py-16 md:py-20 lg:py-8">
         <div className="mx-auto max-w-2xl space-y-6 text-center">
           <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Contact Us

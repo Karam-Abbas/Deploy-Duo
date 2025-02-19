@@ -37,7 +37,7 @@ export function RotatingTechnologies() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-black/5 ">
+    <section className="relative overflow-hidden">
       <div className="">
         <div className="mx-auto max-w-[58rem] text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -85,7 +85,7 @@ export function RotatingTechnologies() {
                     }}
                     className="absolute flex flex-col items-center justify-center"
                   >
-                    <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-card p-4 shadow-xl">
+                    <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-card1 p-4 shadow-xl">
                       <tech.icon 
                         className="h-16 w-16 transition-transform duration-300 hover:scale-110"
                         style={{ color: tech.color }}
