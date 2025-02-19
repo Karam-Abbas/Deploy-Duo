@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import type React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { GeistSans, GeistMono } from "geist/font";
 
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Deploy Duo - Software Development Company",
@@ -23,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground w-full`}>
+    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`min-h-screen bg-background text-foreground w-full`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
