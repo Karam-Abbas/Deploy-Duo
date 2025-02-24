@@ -10,6 +10,19 @@ import { GeistSans, GeistMono } from "geist/font";
 export const metadata: Metadata = {
   title: "Deploy Duo - Software Development Company",
   description: "Professional software development services by Deploy Duo",
+  openGraph: {
+    title: "Deploy Duo - Software Development Company",
+    description: "Professional software development services by Deploy Duo",
+    url: "https://deployduo.vercel.app", 
+    type: "website",
+    images: "/f.png", 
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deploy Duo - Software Development Company",
+    description: "Professional software development services by Deploy Duo",
+    images: ["/f.png"], // Correct way for Twitter
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
