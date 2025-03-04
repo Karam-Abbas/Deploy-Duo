@@ -1,18 +1,23 @@
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
+"use client"; 
+
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const team = [
   {
     name: "Karam Abbas",
     role: "CEO & Co-founder",
     image: "/karam.JPG?height=400&width=400",
+    linkedin: "https://www.linkedin.com/in/karamabbas/",
   },
   {
     name: "Abdul Hannan",
     role: "CTO & Co-founder",
     image: "/hannan.PNG?height=400&width=400",
-  },
-]
+    linkedin: "https://www.linkedin.com/in/abdul-hannan-95a342306/"
+  }
+];
 
 const values = [
   {
@@ -27,9 +32,15 @@ const values = [
     title: "Collaboration",
     description: "Working together to achieve great results",
   },
-]
+];
 
 export default function AboutPage() {
+  const router = useRouter();
+
+  const handleCardClick = (linkedin: string) => {
+    window.open(linkedin, "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container px-4 py-8 mx-auto space-y-16 md:py-12 lg:py-24">
@@ -48,7 +59,7 @@ export default function AboutPage() {
           <div className="flex flex-col space-y-4 order-2 md:order-1">
             <h2 className="text-2xl font-bold">Our Story</h2>
             <p className="text-muted-foreground">
-            Founded in 2023, Deploy Duo is a team of skilled web developers specializing in the MERN Stack and Next.js. We build high-performance, scalable web applications, delivering modern, efficient, and future-proof solutions. Let’s turn ideas into reality! 🚀
+              Founded in 2023, Deploy Duo is a team of skilled web developers specializing in the MERN Stack and Next.js. We build high-performance, scalable web applications, delivering modern, efficient, and future-proof solutions. Let’s turn ideas into reality! 🚀
             </p>
           </div>
           <div className="order-1 md:order-2">
@@ -68,7 +79,11 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-center">Our Team</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {team.map((member, index) => (
-              <Card key={index} className="transition-transform hover:scale-105">
+              <Card
+                key={index}
+                className="transition-transform hover:scale-105 cursor-pointer"
+                onClick={() => handleCardClick(member.linkedin)}
+              >
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center space-y-4">
                     <div className="relative w-40 h-40">
@@ -108,5 +123,5 @@ export default function AboutPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }
