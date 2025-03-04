@@ -60,6 +60,15 @@ const projects = [
     github: "https://github.com/Karam-Abbas/Finance-Tracker",
     category: "Finance",
   },
+  {
+    title: "Medcurric",
+    description: "Blog post site for medical students and practitioners",
+    image: "/medcurric.jpeg",
+    tech: ["Wordpress"],
+    link: "https://financetrackerwebapp.vercel.app/", // to be changed later
+    github: "https://github.com/Karam-Abbas/Finance-Tracker",
+    category: "Blog",
+  }  
 ];
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];

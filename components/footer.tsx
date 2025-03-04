@@ -32,7 +32,7 @@ export function Footer() {
               <span className="sr-only">GitHub</span>
             </Link>
             <Link 
-              href="www.linkedin.com/in/karamabbas" 
+              href="https://www.linkedin.com/in/karamabbas" 
               target="_blank" 
               rel="noreferrer"
               className="text-muted-foreground transition-colors hover:text-primary"
