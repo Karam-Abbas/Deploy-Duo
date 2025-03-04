@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
@@ -15,8 +15,8 @@ const team = [
     name: "Abdul Hannan",
     role: "CTO & Co-founder",
     image: "/hannan.PNG?height=400&width=400",
-    linkedin: "https://www.linkedin.com/in/abdul-hannan-95a342306/"
-  }
+    linkedin: "https://www.linkedin.com/in/abdul-hannan-95a342306/",
+  },
 ];
 
 const values = [
@@ -50,7 +50,8 @@ export default function AboutPage() {
             About Deploy Duo
           </h1>
           <p className="text-lg text-muted-foreground">
-            We are a passionate team of developers and designers creating exceptional digital experiences
+            We are a passionate team of developers and designers creating
+            exceptional digital experiences
           </p>
         </header>
 
@@ -59,7 +60,7 @@ export default function AboutPage() {
           <div className="flex flex-col space-y-4 order-2 md:order-1">
             <h2 className="text-2xl font-bold">Our Story</h2>
             <p className="text-muted-foreground">
-              Founded in 2023, Deploy Duo is a team of skilled web developers specializing in the MERN Stack and Next.js. We build high-performance, scalable web applications, delivering modern, efficient, and future-proof solutions. Let’s turn ideas into reality! 🚀
+            Founded in 2023 by two university friends, DeployDuo is a web solutions company dedicated to crafting high-performance, scalable websites. Whether you need a fully coded solution with MERN or Next.js or a no-code website powered by WordPress, we’ve got you covered. With a focus on efficiency and innovation, we help businesses turn ideas into reality—fast and flawlessly. 🚀
             </p>
           </div>
           <div className="order-1 md:order-2">
@@ -96,7 +97,9 @@ export default function AboutPage() {
                     </div>
                     <div className="text-center">
                       <h3 className="text-xl font-bold">{member.name}</h3>
-                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {member.role}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -110,7 +113,10 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-center">Our Values</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
-              <Card key={index} className="transition-transform hover:scale-105">
+              <Card
+                key={index}
+                className="transition-transform hover:scale-105"
+              >
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center space-y-2 text-center">
                     <h3 className="text-xl font-bold">{value.title}</h3>
