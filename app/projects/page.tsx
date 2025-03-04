@@ -21,7 +21,6 @@ const projects = [
     image: "/beemo.png",
     tech: ["WordPress"],
     link: "https://beemo.shop",
-    github: "#",
     category: "E-Commerce Store",
   },
   {
@@ -30,7 +29,6 @@ const projects = [
     image: "/mushtaq.png",
     tech: ["React", "Javascript", "HTML", "CSS", "Web3 Forms"],
     link: "https://mushtaqsons.com.pk",
-    github: "#",
     category: "Portfolio",
   },
   {
@@ -39,7 +37,6 @@ const projects = [
     image: "/dubairepair.png",
     tech: ["React", "Web3 Forms", "Javascript", "HTML", "CSS"],
     link: "https://serviceapp1.vercel.app",
-    github: "#",
     category: "Portfolio",
   },
   {
@@ -48,7 +45,6 @@ const projects = [
     image: "/nikeapp.png",
     tech: ["React", "Javascript", "HTML", "CSS"],
     link: "https://nike-ui-seven.vercel.app",
-    github: "#",
     category: "Portfolio",
   },
   {
@@ -65,8 +61,7 @@ const projects = [
     description: "Blog post site for medical students and practitioners",
     image: "/medcurric.jpeg",
     tech: ["Wordpress"],
-    link: "https://financetrackerwebapp.vercel.app/", // to be changed later
-    github: "https://github.com/Karam-Abbas/Finance-Tracker",
+    link: "https://medcurricinsights.com",
     category: "Blog",
   }  
 ];
@@ -159,22 +154,22 @@ export default function ProjectsPage() {
                         }}
                         className="flex gap-2"
                       >
-                        <Link
+                        {project.github && <Link
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
                         >
                           <Github className="h-5 w-5" />
-                        </Link>
-                        <Link
+                        </Link>}
+                        {project.link &&<Link
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
                         >
                           <ArrowUpRight className="h-5 w-5" />
-                        </Link>
+                        </Link>}
                       </motion.div>
                     </div>
                   </CardHeader>
