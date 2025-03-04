@@ -12,6 +12,7 @@ import {
   SiMongodb,
   SiExpress,
 } from "react-icons/si"
+import { FaWordpress } from "react-icons/fa";
 import { DiMsqlServer } from "react-icons/di";
 
 const technologies = [
@@ -23,7 +24,8 @@ const technologies = [
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   { name: "MS SQL", icon: DiMsqlServer, color: "#E1341E" },
-  { name: "Express", icon: SiExpress, color: "#ffffff" }
+  { name: "Express", icon: SiExpress, color: "#ffffff" },
+  { name: "Wordpress", icon: FaWordpress, color: "#ffffff" },
 ]
 
 export function RotatingTechnologies() {

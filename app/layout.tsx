@@ -17,6 +17,15 @@ export const metadata: Metadata = {
     type: "website",
     images: "/f.png", 
   },
+  other: {
+    "fb:app_id": "YOUR_FACEBOOK_APP_ID", // Facebook App ID (optional)
+    "og:site_name": "Deploy Duo", // Brand name for all Open Graph platforms
+    "og:locale": "en_US", // Language setting
+    "instagram:username": "your_instagram_username", // Instagram profile
+    "twitter:site": "@your_twitter_handle", // Twitter handle
+    "twitter:creator": "@your_twitter_handle", // Creator's handle
+    "linkedin:owner": "your_linkedin_profile_id", // LinkedIn profile ID
+  },
   twitter: {
     card: "summary_large_image",
     title: "Deploy Duo - Software Development Company",
