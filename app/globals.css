@@ -1,39 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Light theme */
-    --background: 0 0% 100%;           /* Pure white for clean look */
-    --foreground: 222 25% 12%;         /* Soft dark blue-grey for text */
-    --primary: 222 83% 55%;            /* Vibrant blue - welcoming yet professional */
-    --primary-foreground: 0 0% 100%;   /* White text on primary */
-    --muted: 220 14% 96%;              /* Subtle light blue-grey */
-    --muted-foreground: 222 25% 40%;   /* Readable muted text */
-    --border: 220 13% 91%;             /* Subtle borders */
-    --card: 0 0% 30%;                 /* White card background */
-}
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --border: #1F1F1F;
+    --text: #EDEDED;
+    --muted: #6B6B6B;
+    --accent: #C8F135;
+    --accent-dim: #8FB520;
+    --white: #FFFFFF;
+  }
 
-.dark {
-    /* Dark theme - black based */
-    --background: 0 0% 7%;             /* Near-black for base */
-    --foreground: 0 0% 98%;            /* Slightly off-white for better contrast */
-    --primary: 222 83% 60%;            /* Bright blue that pops on dark */
-    --primary-foreground: 0 0% 100%;   /* Pure white for primary text */
-    --muted: 0 0% 15%;                 /* Dark grey for muted areas */
-    --muted-foreground: 0 0% 63%;      /* Visible but subdued text */
-    --border: 0 0% 20%;                /* Subtle dark borders */
-    --card: 0 0% 5%;                   /* Black card background */
-}
-}
-
-@layer base {
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--bg);
   }
 }
 
+@layer components {
+  .section-label {
+    @apply font-mono text-sm uppercase tracking-widest text-accent mb-4;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text;
+  }
+
+  .accent-link {
+    @apply relative text-text transition-colors hover:text-accent;
+  }
+
+  .accent-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-[1px] w-0 bg-accent transition-all duration-300;
+  }
+
+  .accent-link:hover::after {
+    @apply w-full;
+  }
+}

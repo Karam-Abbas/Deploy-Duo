@@ -1,219 +1,262 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import emailjs from '@emailjs/browser'
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Mail, Clock, Globe, Github, Linkedin, Twitter } from "lucide-react"
+import Link from "next/link"
+import emailjs from "@emailjs/browser"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+  }),
+}
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formStatus, setFormStatus] = useState<{
-    type: "success" | "error" | null
-    message: string | null
-  }>({ type: null, message: null })
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    projectType: "",
+    budget: "",
+    message: "",
   })
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus({ type: null, message: null });
-
-    try {
-      // Replace these with your actual EmailJS credentials
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_email: "karamworkmail07@gmail.com", // Your email address
-      };
-
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      )
-
-      setFormStatus({
-        type: "success",
-        message: "Message sent successfully! We'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setFormStatus({
-        type: "error",
-        message: "Failed to send message. Please try again.",
-      });
-      console.error("Email error:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.id]: e.target.value,
-    }));
-  };
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          project_type: formData.projectType,
+          budget: formData.budget,
+          message: formData.message,
+          to_email: "karamworkmail07@gmail.com",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      setFormData({ name: "", email: "", projectType: "", budget: "", message: "" })
+    } catch (error) {
+      console.error("Form error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
-    <main className="min-h-screen w-full bg-background">
-      <div className=" px-4 py-16 md:py-20 lg:py-8">
-        <div className="mx-auto max-w-2xl space-y-6 text-center">
-          <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Contact Us
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Get in touch with us to discuss your project or any questions you
-            may have
-          </p>
+    <div className="overflow-hidden">
+      {/* ===== HERO ===== */}
+      <section className="flex items-center px-6 pt-32 pb-16 md:pt-40 md:pb-24">
+        <div className="mx-auto max-w-content w-full">
+          <motion.div initial="hidden" animate="visible" className="max-w-3xl">
+            <motion.p variants={fadeUp} custom={0} className="section-label mb-6">
+              // Contact
+            </motion.p>
+            <motion.h1 variants={fadeUp} custom={1} className="font-display text-[clamp(40px,6vw,72px)] font-extrabold leading-[1.1] tracking-tight">
+              Let&apos;s Build Something
+              <br />
+              Together.
+            </motion.h1>
+            <motion.p variants={fadeUp} custom={2} className="mt-6 text-lg text-muted leading-relaxed max-w-2xl">
+              Tell us about your project. We&apos;ll reply within 24 hours with
+              honest thoughts and a clear next step.
+            </motion.p>
+          </motion.div>
         </div>
+      </section>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-2">
-          <Card className="h-fit">
-            <CardHeader>
-              <CardTitle>Send us a message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you as soon as
-                possible
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {formStatus.message && (
-                  <Alert
-                    variant={
-                      formStatus.type === "success" ? "default" : "destructive"
-                    }
+      {/* ===== FORM + INFO ===== */}
+      <section className="px-6 pb-24 md:pb-32">
+        <div className="mx-auto max-w-content grid gap-16 md:grid-cols-2">
+          {/* Left — Contact Info */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <Mail className="h-5 w-5 mt-0.5 text-accent shrink-0" />
+                <div>
+                  <p className="text-sm font-medium">Email</p>
+                  <p className="text-sm text-muted">deployduo@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Clock className="h-5 w-5 mt-0.5 text-accent shrink-0" />
+                <div>
+                  <p className="text-sm font-medium">Response Time</p>
+                  <p className="text-sm text-muted">Within 24 hours</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Globe className="h-5 w-5 mt-0.5 text-accent shrink-0" />
+                <div>
+                  <p className="text-sm font-medium">Availability</p>
+                  <p className="text-sm text-muted">Open to new projects</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-border pt-8">
+              <p className="text-sm italic text-muted leading-relaxed">
+                &ldquo;We don&apos;t do pushy sales calls. Just a real conversation about
+                whether we&apos;re a good fit.&rdquo;
+              </p>
+            </div>
+
+            <div className="flex gap-4 pt-4">
+              <Link
+                href="https://github.com/Karam-Abbas"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+              >
+                <Github className="h-4 w-4" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/karamabbas"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+              >
+                <Linkedin className="h-4 w-4" />
+              </Link>
+              <Link
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+              >
+                <Twitter className="h-4 w-4" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right — Form */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  Name <span className="text-accent">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text placeholder:text-muted/50 outline-none transition-colors focus:border-accent"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  Email <span className="text-accent">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text placeholder:text-muted/50 outline-none transition-colors focus:border-accent"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium mb-2">
+                    Project Type
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-colors focus:border-accent appearance-none"
                   >
-                    <AlertDescription>{formStatus.message}</AlertDescription>
-                  </Alert>
-                )}
-                <div className="space-y-2">
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="h-12"
-                  />
+                    <option value="">Select...</option>
+                    <option value="web-app">Web App</option>
+                    <option value="e-commerce">E-Commerce</option>
+                    <option value="wordpress">WordPress</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
-                <div className="space-y-2">
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Your email"
-                    required
-                    value={formData.email}
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium mb-2">
+                    Budget Range
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
                     onChange={handleChange}
-                    className="h-12"
-                  />
+                    className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-colors focus:border-accent appearance-none"
+                  >
+                    <option value="">Select...</option>
+                    <option value="<500">&lt;$500</option>
+                    <option value="500-2k">$500–$2k</option>
+                    <option value="2k-5k">$2k–$5k</option>
+                    <option value="5k+">$5k+</option>
+                  </select>
                 </div>
-                <div className="space-y-2">
-                  <Textarea
-                    id="message"
-                    placeholder="Your message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="min-h-[150px] resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="h-12 w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+              </div>
 
-          <div className="space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>
-                  Find us using the information below
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-semibold">Address</h3>
-                    <p className="text-muted-foreground">
-                      Lahore
-                      <br />
-                      Punjab, Pakistan
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">+92 (326) 140-5470</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">
-                      karamworkmail07@gmail.com
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  Tell us about your project
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text placeholder:text-muted/50 outline-none transition-colors focus:border-accent resize-none"
+                  placeholder="What are you building? Tell us about your goals, timeline, and any specific requirements..."
+                />
+              </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Office Hours</CardTitle>
-                <CardDescription>When you can reach us</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="font-medium">Monday - Friday</span>
-                  <span className="text-muted-foreground">
-                    9:00 AM - 6:00 PM
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Saturday</span>
-                  <span className="text-muted-foreground">
-                    10:00 AM - 4:00 PM
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Sunday</span>
-                  <span className="text-muted-foreground">Closed</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-lg bg-accent px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-accent-dim disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Send Message →"}
+              </button>
+            </form>
+          </motion.div>
         </div>
-      </div>
-    </main>
-  );
+      </section>
+    </div>
+  )
 }
