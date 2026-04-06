@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import { Linkedin } from "lucide-react"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { Linkedin } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -12,7 +12,7 @@ const fadeUp = {
     y: 0,
     transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
   }),
-}
+};
 
 const team = [
   {
@@ -29,7 +29,7 @@ const team = [
     bio: "If it can be optimized, it should be.",
     linkedin: "https://www.linkedin.com/in/abdul-hannan-95a342306/",
   },
-]
+];
 
 const values = [
   {
@@ -48,7 +48,7 @@ const values = [
     title: "Long-term Thinking",
     body: "We build as if we'll be maintaining it for the next 5 years.",
   },
-]
+];
 
 export default function AboutPage() {
   return (
@@ -57,25 +57,38 @@ export default function AboutPage() {
       <section className="flex items-center px-6 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-content w-full">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
-            <motion.p variants={fadeUp} custom={0} className="section-label mb-6">
+            <motion.p
+              variants={fadeUp}
+              custom={0}
+              className="section-label mb-6"
+            >
               // About Us
             </motion.p>
-            <motion.h1 variants={fadeUp} custom={1} className="font-display text-[clamp(40px,6vw,72px)] font-extrabold leading-[1.1] tracking-tight">
+            <motion.h1
+              variants={fadeUp}
+              custom={1}
+              className="font-display text-[clamp(40px,6vw,72px)] font-extrabold leading-[1.1] tracking-tight"
+            >
               Two Builders.
               <br />
               One Standard.
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="mt-6 text-lg text-muted leading-relaxed max-w-2xl">
-              Deploy Duo was founded by two university friends who got tired of
-              seeing clients overcharged for mediocre software. We built this
-              agency to do things differently.
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="mt-6 text-lg text-muted leading-relaxed max-w-2xl"
+            >
+              Deploy Duo was born out of a simple realization: the world has
+              enough developers, but it’s starving for problem solvers. We
+              started this journey because we saw too many founders getting lost
+              in technical debt and 'good enough' software
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* ===== OUR STORY ===== */}
-      <section className="px-6 pb-24 md:pb-32">
+      <section className="px-6 py-24 md:py-32 bg-surface">
         <div className="mx-auto max-w-content">
           <div className="grid gap-12 md:grid-cols-2 items-center">
             <motion.div
@@ -88,17 +101,21 @@ export default function AboutPage() {
               <p className="section-label">Our Story</p>
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  In 2023, Karam and Abdul were sitting in a university lab watching clients
-                  get burned by agencies that over-promised and under-delivered.
+                  We&apos;ve spent our careers obsessed with the architecture
+                  behind the interface. From navigating the complexities of
+                  healthcare data to scaling full-stack platforms, we&apos;ve
+                  learned that the best digital products are built on a
+                  foundation of intention and precision.
                 </p>
                 <p>
-                  So they started Deploy Duo — a studio built on a simple principle: ship
-                  great software, on time, at a fair price. No middlemen. No bloat. Just two
-                  engineers who care.
+                  Today, we operate as a lean, high-output team. We don&apos;t
+                  treat your project as another ticket in a queue; we treat it
+                  as a partnership.
                 </p>
                 <p>
-                  Today, we&apos;ve shipped 20+ products across e-commerce, finance, healthcare,
-                  and more. And we&apos;re just getting started.
+                  When you work with us, you&apos;re not just getting a
+                  vendor—you&apos;re getting a team that treats your codebase as
+                  if it were our own.
                 </p>
               </div>
             </motion.div>
@@ -124,7 +141,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TEAM ===== */}
-      <section className="px-6 py-24 md:py-32 bg-surface">
+      <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-content">
           <motion.div
             variants={fadeUp}
@@ -157,8 +174,12 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold">{member.name}</h3>
-                    <p className="font-mono text-sm text-accent mt-1">{member.role}</p>
+                    <h3 className="font-display text-xl font-bold">
+                      {member.name}
+                    </h3>
+                    <p className="font-mono text-sm text-accent mt-1">
+                      {member.role}
+                    </p>
                     <p className="mt-3 text-sm text-muted italic leading-relaxed">
                       &ldquo;{member.bio}&rdquo;
                     </p>
@@ -180,7 +201,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== VALUES ===== */}
-      <section className="px-6 py-24 md:py-32">
+      <section className="px-6 py-24 md:py-32 bg-surface">
         <div className="mx-auto max-w-content">
           <motion.div
             variants={fadeUp}
@@ -203,9 +224,15 @@ export default function AboutPage() {
                 custom={i}
                 className="rounded-xl border border-border p-8 transition-all duration-300 hover:border-accent"
               >
-                <span className="font-mono text-xs text-muted/40">0{i + 1}</span>
-                <h3 className="mt-3 font-display text-lg font-bold">{value.title}</h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{value.body}</p>
+                <span className="font-mono text-xs text-muted/40">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-3 font-display text-lg font-bold">
+                  {value.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">
+                  {value.body}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -213,7 +240,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="px-6 py-24 md:py-32 bg-surface border-y border-border">
+      <section className="px-6 py-24 md:py-32 border-y border-border">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -222,7 +249,7 @@ export default function AboutPage() {
           className="mx-auto max-w-content text-center"
         >
           <h2 className="font-display text-3xl sm:text-4xl font-bold">
-            Work with a Team That Gives a Damn.
+            Work with a Team That Truely Cares.
           </h2>
           <Link
             href="/contact"
@@ -233,5 +260,5 @@ export default function AboutPage() {
         </motion.div>
       </section>
     </div>
-  )
+  );
 }

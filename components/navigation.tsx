@@ -95,7 +95,7 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-bg/98 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-bg/70 backdrop-blur-xl md:hidden"
           >
             <nav className="flex flex-col items-center gap-8">
               {routes.map((route, i) => (
