@@ -137,8 +137,8 @@ export default function ProjectsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
               >
-                <div className="group rounded-xl border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-accent">
-                  <div className="relative h-52 w-full overflow-hidden bg-surface">
+                <div className="group flex flex-col rounded-xl border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-accent h-full">
+                  <div className="relative h-52 w-full shrink-0 overflow-hidden bg-surface">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -149,7 +149,7 @@ export default function ProjectsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent" />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-1">
                     <span className="font-mono text-xs uppercase tracking-wider text-accent">
                       {project.category}
                     </span>
@@ -173,7 +173,7 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    <div className="mt-5 flex items-center gap-4">
+                    <div className="mt-auto pt-5 flex items-center gap-4">
                       {project.github && (
                         <Link
                           href={project.github}
