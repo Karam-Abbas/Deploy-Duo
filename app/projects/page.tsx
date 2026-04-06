@@ -23,7 +23,7 @@ const projects = [
     tech: ["WordPress"],
     link: "https://beemo.shop",
     category: "E-Commerce",
-    highlight: "Fully functional jewellery store with payments & inventory",
+    highlight: null,
   },
   {
     title: "Mushtaq & Sons",
@@ -60,7 +60,7 @@ const projects = [
     link: "https://financetrackerwebapp.vercel.app/",
     github: "https://github.com/Karam-Abbas/Finance-Tracker",
     category: "Finance",
-    highlight: "Complete MERN-stack app with auth, dashboards, and real-time tracking",
+    highlight: null,
   },
   {
     title: "Medcurric",
