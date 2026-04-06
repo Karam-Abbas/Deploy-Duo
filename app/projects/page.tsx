@@ -60,7 +60,7 @@ const projects = [
     link: "https://financetrackerwebapp.vercel.app/",
     github: "https://github.com/Karam-Abbas/Finance-Tracker",
     category: "Finance",
-    highlight: null,
+    highlight: null ,
   },
   {
     title: "Medcurric",

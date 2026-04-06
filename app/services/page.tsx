@@ -15,23 +15,23 @@ const fadeUp = {
 const services = [
   {
     num: "01",
-    title: "Custom Web Development",
-    body: "Full-stack websites built with React or Next.js. Optimized for performance, SEO, and long-term maintainability.",
+    title: "AI Automation Development",
+    body: "Automate repetitive tasks and workflows using AI-powered solutions. From chatbots to predictive analytics, we help you leverage AI to save time and improve efficiency.",
   },
   {
     num: "02",
-    title: "WordPress Development",
-    body: "Headless or classic WordPress builds. Great for content-heavy sites, blogs, or clients who need to manage their own content.",
+    title: "Full-Stack Web Apps",
+    body: "Complex applications with databases, auth, and real-time features. Built on MERN or Next.js + Supabase.",
   },
   {
     num: "03",
-    title: "E-Commerce Development",
-    body: "Shopify, WooCommerce, or custom storefronts. Integrated with payments, inventory, and analytics from day one.",
+    title: "Data Scraping & APIs",
+    body: "Extract structured data from any source and build robust APIs to power your applications. From lead generation to competitive monitoring, we turn raw data into actionable insights.",
   },
   {
     num: "04",
-    title: "Full-Stack Web Apps",
-    body: "Complex applications with databases, auth, and real-time features. Built on MERN or Next.js + Supabase.",
+    title: "WordPress Development",
+    body: "Headless or classic WordPress builds. Great for content-heavy sites, blogs, or clients who need to manage their own content.",
   },
   {
     num: "05",
@@ -52,11 +52,11 @@ const techCategories = [
   },
   {
     label: "Backend",
-    techs: ["Node.js", "Express", "MongoDB", "REST APIs"],
+    techs: ["Node.js", "Django", "Express", "MongoDB", "SupaBase"],
   },
   {
     label: "CMS / No-Code",
-    techs: ["WordPress", "WooCommerce"],
+    techs: ["WordPress", "N8N", "GoHighLevel"],
   },
   {
     label: "Tooling",

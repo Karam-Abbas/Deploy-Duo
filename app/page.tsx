@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, Code2, Filter } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -12,33 +13,44 @@ const fadeUp = {
     y: 0,
     transition: { delay: i * 0.15, duration: 0.5, ease: "easeOut" },
   }),
-}
+};
 
 const techs = [
-  "React", "Next.js", "Node.js", "WordPress", "MongoDB",
-  "Express", "Tailwind CSS", "TypeScript", "Framer Motion", "Git",
-]
+  "React",
+  "Next.js",
+  "Node.js",
+  "WordPress",
+  "MongoDB",
+  "AWS",
+  "Supabase",
+  "Express",
+  "Tailwind CSS",
+  "TypeScript",
+  "Framer Motion",
+  "Git",
+  "Django",
+];
 
 const services = [
   {
     num: "01",
-    icon: "</>",
+    icon: <Sparkles className="h-6 w-6" />,
+    title: "AI Automation",
+    body: "Automate repetitive tasks and workflows using AI-powered solutions. From chatbots to predictive analytics, we help you leverage AI to save time and improve efficiency.",
+  },
+  {
+    num: "02",
+    icon: <Code2 className="h-6 w-6" />,
     title: "Web Development",
     body: "Custom websites and web apps built for speed, scale, and conversion. React, Next.js, or WordPress — whatever fits the job.",
   },
   {
-    num: "02",
-    icon: "◻",
-    title: "E-Commerce",
-    body: "Full-featured online stores that sell. Beemo Shop-level polish, with inventory, payments, and SEO baked in.",
-  },
-  {
     num: "03",
-    icon: "⚡",
-    title: "Full-Stack Apps",
+    icon: <Filter className="h-6 w-6" />,
+    title: "Data Scraping",
     body: "Database-backed applications with clean APIs and intuitive UIs. MERN stack, auth, dashboards — we own the full picture.",
   },
-]
+];
 
 const featuredProjects = [
   {
@@ -65,14 +77,30 @@ const featuredProjects = [
     category: "Finance",
     link: "https://financetrackerwebapp.vercel.app/",
   },
-]
+];
 
 const steps = [
-  { num: "01", title: "Discovery", body: "We learn your goals, users, and constraints in a focused kickoff call." },
-  { num: "02", title: "Design", body: "Wireframes and visual mockups — you see it before we build it." },
-  { num: "03", title: "Build", body: "Agile sprints with regular check-ins. You always know where things stand." },
-  { num: "04", title: "Launch", body: "Deployment, testing, and handoff. Plus post-launch support." },
-]
+  {
+    num: "01",
+    title: "Discovery",
+    body: "We learn your goals, users, and constraints in a focused kickoff call.",
+  },
+  {
+    num: "02",
+    title: "Design",
+    body: "Wireframes and visual mockups — you see it before we build it.",
+  },
+  {
+    num: "03",
+    title: "Build",
+    body: "Agile sprints with regular check-ins. You always know where things stand.",
+  },
+  {
+    num: "04",
+    title: "Launch",
+    body: "Deployment, testing, and handoff. Plus post-launch support.",
+  },
+];
 
 export default function Home() {
   return (
@@ -83,17 +111,18 @@ export default function Home() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "radial-gradient(circle, #EDEDED 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, #EDEDED 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
         <div className="relative mx-auto max-w-content w-full">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-3xl"
-          >
-            <motion.p variants={fadeUp} custom={0} className="section-label mb-6">
+          <motion.div initial="hidden" animate="visible" className="max-w-3xl">
+            <motion.p
+              variants={fadeUp}
+              custom={0}
+              className="section-label mb-6"
+            >
               // Software Agency &middot; Est. 2023
             </motion.p>
             <motion.h1
@@ -140,7 +169,10 @@ export default function Home() {
       <div className="border-y border-border py-5 overflow-hidden bg-surface">
         <div className="flex animate-marquee gap-12 whitespace-nowrap">
           {[...techs, ...techs].map((t, i) => (
-            <span key={i} className="font-mono text-sm text-muted uppercase tracking-wider">
+            <span
+              key={i}
+              className="font-mono text-sm text-muted uppercase tracking-wider"
+            >
               {t} <span className="text-accent mx-2">&middot;</span>
             </span>
           ))}
@@ -165,7 +197,9 @@ export default function Home() {
               custom={i}
               className="text-center md:border-r md:border-border last:border-0"
             >
-              <p className="font-display text-4xl md:text-5xl font-bold text-text">{stat.value}</p>
+              <p className="font-display text-4xl md:text-5xl font-bold text-text">
+                {stat.value}
+              </p>
               <p className="mt-2 text-sm text-muted">{stat.label}</p>
             </motion.div>
           ))}
@@ -198,11 +232,20 @@ export default function Home() {
                 custom={i}
                 className="group rounded-xl border border-border p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent"
               >
-                <span className="font-mono text-3xl text-muted/30">{svc.num}</span>
-                <div className="mt-6 mb-4 font-mono text-xl text-accent">{svc.icon}</div>
-                <h3 className="font-display text-xl font-bold mb-3">{svc.title}</h3>
+                <span className="font-mono text-3xl text-muted/30">
+                  {svc.num}
+                </span>
+                <div className="mt-6 mb-4 font-mono text-xl text-accent">
+                  {svc.icon}
+                </div>
+                <h3 className="font-display text-xl font-bold mb-3">
+                  {svc.title}
+                </h3>
                 <p className="text-sm text-muted leading-relaxed">{svc.body}</p>
-                <Link href="/services" className="mt-6 inline-block text-sm text-muted hover:text-accent transition-colors">
+                <Link
+                  href="/services"
+                  className="mt-6 inline-block text-sm text-muted hover:text-accent transition-colors"
+                >
                   Learn more &rarr;
                 </Link>
               </motion.div>
@@ -264,8 +307,12 @@ export default function Home() {
                     <span className="font-mono text-xs uppercase tracking-wider text-accent">
                       {project.category}
                     </span>
-                    <h3 className="mt-2 font-display text-lg font-bold">{project.title}</h3>
-                    <p className="mt-1 text-sm text-muted">{project.description}</p>
+                    <h3 className="mt-2 font-display text-lg font-bold">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted">
+                      {project.description}
+                    </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {project.tech.map((t) => (
                         <span
@@ -327,8 +374,12 @@ export default function Home() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-accent text-accent font-mono text-xs font-bold">
                     {step.num}
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed">{step.body}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted leading-relaxed">
+                    {step.body}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -339,7 +390,13 @@ export default function Home() {
       {/* ===== CTA BANNER ===== */}
       <section className="relative px-6 py-24 md:py-32 bg-surface border-y border-border overflow-hidden">
         {/* Noise texture */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -348,8 +405,7 @@ export default function Home() {
           className="relative mx-auto max-w-content text-center"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-            Ready to Build Something{" "}
-            <span className="text-accent">Real?</span>
+            Ready to Build Something <span className="text-accent">Real?</span>
           </h2>
           <p className="mt-4 text-lg text-muted">
             Drop us a message and we&apos;ll get back to you within 24 hours.
@@ -365,5 +421,5 @@ export default function Home() {
         </motion.div>
       </section>
     </div>
-  )
+  );
 }
